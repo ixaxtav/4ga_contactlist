@@ -1,3 +1,4 @@
+/* global fetch */ 
 import Flux from "@4geeksacademy/react-flux-dash";
 
 export const addContact = (contact) => {
@@ -20,6 +21,21 @@ export const editContact = (contact) => {
         return c;
     });
     Flux.dispatchEvent('contacts', newContactsList);
+};
+
+export const getAllContacts = () => {
+    fetch('http://contact-list-all-ixaxtav.c9users.io:8081/api/contacts/')
+      .then(function(response) {
+        console.log("Status Response", response.status);
+        return response.json();
+      })
+      .then(function(incomingObject) {
+        Flux.dispatchEvent('contacts', incomingObject);
+        console.log(incomingObject);
+      })
+      .catch(function(error){
+        console.log("Error", error);
+      });
 };
 
 class MyStore extends Flux.DashStore {

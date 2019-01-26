@@ -3,8 +3,13 @@ import Flux from "@4geeksacademy/react-flux-dash";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Contacts from "./views/Contacts.jsx";
 import AddContact from "./views/AddContact.jsx";
+import {getAllContacts} from "./flux.js";
+
 
 export default class Layout extends Flux.View {
+    componentDidMount(){
+        getAllContacts();
+    }
     render() {
         return (
             <div>
