@@ -1,6 +1,6 @@
 # Contact Managment Application 
 
-User are allow to create/edit/delete a contact list including full name, email, address, and phone number.
+User are allow to create/edit/delete a contact including full name, email, address, and phone number.
 
 # Demo 
 
